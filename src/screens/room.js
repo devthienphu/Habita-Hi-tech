@@ -1,4 +1,4 @@
-import {View, Text, Image, ScrollView,Button,TouchableOpacity,TextInput} from 'react-native';
+import {View, Text, Image, ScrollView,Button,TouchableOpacity,TextInput, Pressable} from 'react-native';
 import { StyledComponent } from "nativewind";
 import React from 'react';
 import BackGround from '../components/background';
@@ -20,7 +20,7 @@ const Rooms = [
   {
       name: 'Living room',
       img: livingRoom,
-      device: ['Main light', 'Corner light', 'Fan'],
+      device: ['Main light', 'Corner light', 'Fan','Main light', 'Corner light', 'Fan'],
       temperature: 20,
       intensity: 5,
   },
@@ -119,9 +119,21 @@ const Room = ({ route }) => {
 
           </View>
 
-          <Text className="text-[#414141] font-medium opacity-80 text-base px-4">All devices ({Rooms[id].device.length})</Text>
+          <Text className="text-[#414141] font-medium opacity-80 text-base px-6 pb-4">All devices ({Rooms[id].device.length})</Text>
+          
           <ScrollView className="h-full px-4">
-            
+            <View className='flex items-center gap-4 mb-6'>
+              {Rooms[id].device.map((item, index) => (
+                <Pressable
+                  className='w-[92%] border border-[#12BEF6] border-2 rounded-xl bg-white py-2 px-6'
+                  keys={index}
+                  style={styles.shadow}
+                >
+                  <Text className='text-[#414141] font-medium opacity-80 text-base tracking-wider'>{item}</Text>
+
+                </Pressable>
+              ))}
+            </View>
           </ScrollView>
 
         </StyledComponent>
