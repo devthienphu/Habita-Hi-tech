@@ -11,7 +11,7 @@ import temperature from '../img/temperature.png';
 
 import back from '../img/back.png';
 import sheld from '../img/sheld.png';
-import account from '../img/account.png';
+import account from '../img/account_icon.png';
 import logout from '../img/logout.png';
 import styles from '../style';
 const Statistic = () => {
