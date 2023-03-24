@@ -9,6 +9,7 @@ import Home from './src/screens/home';
 import Room from './src/screens/room';
 import Profile from './src/screens/profile';
 import Statistic from './src/screens/statistic';
+import Setting from './src/screens/setting';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
           <Stack.Screen name="Room" component={Room} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Statistic" component={Statistic} />
+          <Stack.Screen name="Setting" component={Setting} />
 
 
         </Stack.Navigator>
