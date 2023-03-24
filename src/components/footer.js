@@ -18,8 +18,10 @@ const Footer = () => {
             </Pressable>
             <Pressable onPress={() => navigation.navigate('Profile')}>
                 <Image source={user}></Image>  
-            </Pressable>   
-            <Image source={statistic}></Image>     
+            </Pressable>
+            <Pressable onPress={() => navigation.navigate('Statistic')}>
+                <Image source={statistic}></Image>  
+            </Pressable>      
             <Image source={setting}></Image>     
         </View>
     );
