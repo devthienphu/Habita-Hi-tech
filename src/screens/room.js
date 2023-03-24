@@ -14,6 +14,9 @@ import temperatureImg from '../img/temper.png'
 import intensityImg from '../img/inten.png'
 import bluePlus from '../img/Add_square.png'
 
+import fanIcon from '../img/fanIcon.png'
+import rightArrow from '../img/rightArrow.png'
+
 import styles from '../style'
 
 const Rooms = [
@@ -79,7 +82,7 @@ const Room = ({ route }) => {
 
           <View className='bg-[#E0F2F8] w-[95%] rounded-2xl mx-auto my-8' style={styles.shadow}>
 
-            <View className='bg-[#12BEF6] px-2 rounded-2xl py-4'>
+            <View className='bg-[#12BEF6] px-2 rounded-2xl py-4' style={styles.shadow}>
               <View className='flex flex-row items-center px-4'>
                 <Text className='text-white font-bold text-xl tracking-wider pr-2'>{Rooms[id].name}</Text>
                 <Image source={Rooms[id].img}></Image>
@@ -113,7 +116,7 @@ const Room = ({ route }) => {
             </View>
 
             <View className='flex flex-row justify-center items-center py-3'>
-            <Image source={bluePlus}></Image>
+              <Image source={bluePlus}></Image>
               <Text className='text-[#04C1FE] font-semibold text-base tracking-wider'>Add new device</Text>
             </View>
 
@@ -125,11 +128,16 @@ const Room = ({ route }) => {
             <View className='flex items-center gap-4 mb-6'>
               {Rooms[id].device.map((item, index) => (
                 <Pressable
-                  className='w-[92%] border border-[#12BEF6] border-2 rounded-xl bg-white py-2 px-6'
-                  keys={index}
+                  className='flex flex-row justify-between items-center w-[92%] border border-[#12BEF6] border-2 rounded-xl bg-white py-2 px-6'
+                  key={index}
                   style={styles.shadow}
                 >
-                  <Text className='text-[#414141] font-medium opacity-80 text-base tracking-wider'>{item}</Text>
+                  <View className='flex flex-row items-center'>
+                    <Image source={fanIcon}></Image>
+                    <Text className='text-[#414141] font-medium opacity-80 text-base tracking-wider px-2'>{item}</Text>
+                  </View>
+
+                  <Image source={rightArrow}></Image>
 
                 </Pressable>
               ))}
