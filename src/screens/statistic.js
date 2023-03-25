@@ -31,7 +31,7 @@ const Statistic = () => {
     return (
       <BackGround>
         <View className="flex flex-col pt-12 justify-between h-screen">
-            <View className="flex flex-col px-2 pb-14">
+            <View className="flex flex-col px-2 pb-[58px]">
                 <Header/>
                 {/* Selection */}
                 <View className="flex flex-row justify-between px-2 pt-6 z-50">
