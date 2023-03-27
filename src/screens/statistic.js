@@ -34,7 +34,7 @@ const Statistic = () => {
             <View className="flex flex-col px-2">
                 <Header/>
                 {/* Selection */}
-                <View className="flex flex-row justify-between px-2 pt-6 z-50">
+                <View className="flex flex-row justify-between px-2 pt-6 z-10">
                 <View className="w-2/5">
                   <DropDownPicker
                     open={open1}

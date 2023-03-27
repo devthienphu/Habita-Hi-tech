@@ -1,6 +1,8 @@
-import {View, Text, Image, ScrollView,Button,TouchableOpacity,TextInput, Pressable} from 'react-native';
+import {View, Text, Image, ScrollView, Modal, Pressable, TextInput, ImageBackground} from 'react-native';
 import { StyledComponent } from "nativewind";
-import React from 'react';
+import React, { useState } from 'react';
+import { BlurView } from 'expo-blur';
+
 import BackGround from '../components/background';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -16,6 +18,9 @@ import bluePlus from '../img/Add_square.png'
 
 import fanIcon from '../img/fanIcon.png'
 import rightArrow from '../img/rightArrow.png'
+import bgAddDevice from '../img/Rectangle.png'
+import addsuccess from '../img/Done_ring_round.png'
+import closeModal from '../img/close_ring.png'
 
 import styles from '../style'
 
@@ -73,10 +78,13 @@ const Rooms = [
 
 const Room = ({ route }) => {
   const { id } = route.params
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <BackGround>
-      <View className="flex flex-col h-screen ">
 
+      <View className="flex flex-col h-screen ">
         <StyledComponent component={View} className="h-full w-full pt-12 px-2">
           <Header/>
 
@@ -115,10 +123,56 @@ const Room = ({ route }) => {
               </View>
             </View>
 
-            <View className='flex flex-row justify-center items-center py-3'>
-              <Image source={bluePlus}></Image>
-              <Text className='text-[#04C1FE] font-semibold text-base tracking-wider'>Add new device</Text>
-            </View>
+            <Pressable 
+                onPress={() => setModalVisible(true)} 
+                className='flex flex-row items-center justify-center py-3'
+              >
+                <Image source={bluePlus}></Image>
+                <Text className='text-[#04C1FE] font-semibold text-base tracking-wider'>Add new device</Text>
+            </Pressable>
+
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              
+              <View className='justify-center my-auto mx-auto w-[90%] border border-black-2 rounded-xl'>
+                <ImageBackground 
+                  source={bgAddDevice} 
+                  imageStyle={{ borderRadius: 12 }}
+                >
+                  <Text className='text-[#414141] font-medium opacity-80 text-lg tracking-wider px-10 py-4'>New device</Text>
+                  <View className='flex items-center gap-y-4'>  
+                    <TextInput 
+                      className="py-2.5 rounded-xl border w-[80%] px-4 bg-white border-white" 
+                      placeholder="Enter device name" 
+                      style={styles.shadow} 
+                    />
+                    <TextInput 
+                      className="py-2.5 rounded-xl border w-[80%] px-4 bg-white border-white mb-4" 
+                      placeholder="Choose Type Of Device" 
+                      style={styles.shadow} 
+                    />
+                  </View>
+                  
+                  <View className='flex flex-row bg-[#e6e6e6] rounded-xl mt-4'>
+                    <Pressable className='w-1/2 items-center scale-125 py-3'>
+                      <Image source={addsuccess}></Image>
+                    </Pressable>
+
+                    <Pressable 
+                      onPress={() => setModalVisible(!modalVisible)}
+                      className='w-1/2 items-center scale-125 py-3'
+                    >
+                      <Image source={closeModal}></Image>
+                    </Pressable>
+                  </View>
+                </ImageBackground>
+              </View>
+            </Modal>
 
           </View>
 
@@ -149,6 +203,15 @@ const Room = ({ route }) => {
         <Footer/>
 
       </View>
+
+      {modalVisible && 
+        <BlurView
+          tint="light"
+          intensity={100}
+          className='absolute w-full h-full'
+        />
+      }
+
     </BackGround>
   )
 }

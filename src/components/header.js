@@ -1,22 +1,30 @@
-import {View, Text, Image, ScrollView,Button,TouchableOpacity,TextInput, Pressable} from 'react-native';
+import {View, Text, Image, TouchableWithoutFeedback, Pressable} from 'react-native';
 import { StyledComponent } from "nativewind";
 import React, { useState } from 'react';
-import MenuSide from './menuSide';
 
 import { useNavigation } from '@react-navigation/native';
+import MenuSide from './menuSide';
 
 const Header = () => {
     const navigation = useNavigation()
-    const [ menuSideState, setmenuSideState ] = useState(0)
 
-    const setMenuSide = () => setmenuSideState(1)
+    const [menuSideState, setMenuSideState] = useState(false)
 
     return (
         <>
-            {/* {menuSideState ? <MenuSide/>: null} */}
+            {menuSideState && 
+                <>
+                    <MenuSide />
+
+                    <TouchableWithoutFeedback onPress={() => setMenuSideState(false)}>
+                        <View className='bg-red-500 absolute right-[-4] top-[-10] w-[25%] h-screen z-50'>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </>
+            }
 
             <StyledComponent component={View} className="flex flex-row justify-between w-full px-3 items-center">
-                <Pressable onPress={setMenuSide}>
+                <Pressable onPress={() => setMenuSideState(true)}>
                     <StyledComponent component={Image} className="object-cover" 
                         source={require('../img/menuIcon.png')}>
                     </StyledComponent>
