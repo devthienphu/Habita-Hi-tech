@@ -21,7 +21,7 @@ const Statistic = () => {
   ]);
 
   const [open1, setOpen1] = useState(false);
-  const [value1, setValue1] = useState(null);
+  const [value1, setValue1] = useState('living room');
   const [items1, setItems1] = useState([
     {label: 'Living room', value: 'living room'},
     {label: 'Bed room', value: 'bed room'},
@@ -31,7 +31,7 @@ const Statistic = () => {
     return (
       <BackGround>
         <View className="flex flex-col pt-12 justify-between h-screen">
-            <View className="flex flex-col px-2 pb-[58px]">
+            <View className="flex flex-col px-2">
                 <Header/>
                 {/* Selection */}
                 <View className="flex flex-row justify-between px-2 pt-6 z-50">
@@ -65,17 +65,14 @@ const Statistic = () => {
                 <Image source={light} className="w-full my-4"></Image>
 
                 <Pressable 
-                        style={styles.shadow} 
-                        className="bg-[#48D0FE] rounded-2xl w-fit items-center mx-16 py-2 mt-6"
-                    >
-                        <Text className="text-xl font-bold text-white">Generate report</Text>
+                    style={styles.shadow} 
+                    className="bg-[#48D0FE] rounded-2xl w-fit items-center mx-16 py-4 mt-6">
+                    <Text className="text-xl font-bold text-white">Generate report</Text>
                 </Pressable>
-                
             </View>
-
-
-            <Footer/>
         </View>
+
+        <Footer/>
       </BackGround>
     );
 }

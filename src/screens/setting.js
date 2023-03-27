@@ -20,13 +20,15 @@ const Setting = () => {
 
         <BackGround>
 
-        <View className="flex flex-col justify-between h-screen">
-            <View className="pt-12 pb-[75px]">
+        <View className="flex flex-col h-screen">
+            <View className="pt-12">
                 <Header/>
                 
                 {/* Setting option */}
                 <View className='mb-8'>
-                    <View className="flex flex-col gap-y-6 bg-white rounded-xl mx-5 mt-4 pb-6 px-2 mt-12" style={styles.shadow}>
+                    <Text className="font-bold text-gray-700 px-5 text-lg mt-8">Settings</Text>
+
+                    <View className="flex flex-col gap-y-6 bg-white rounded-xl mx-5 mt-4 pb-6 px-2" style={styles.shadow}>
                         {/* Options */}
                         <View className="flex flex-row justify-between items-center px-4">
                             <View className="flex flex-row gap-x-4 items-center">
@@ -102,8 +104,9 @@ const Setting = () => {
                 </View>
 
             </View>
-            <Footer/>
         </View>
+
+        <Footer/>
         </BackGround>
 
     );
