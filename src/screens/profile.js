@@ -9,6 +9,7 @@ import setting from '../img/settingRound.png'
 import account from '../img/account.png'
 
 import Footer from '../components/footer';
+import ProfileHeader from '../components/profileheader';
 
 import styles from '../style'
 
@@ -17,14 +18,12 @@ const Profile = ({ navigation }) => {
         <BackGround>
             <View className='justify-between'>
                 <View className="flex flex-col h-screen justify-between">
-                    <ImageBackground source={require('../img/bg_profile.png')} className='min-h-[50%] max-h-[50%]'>
-                        <View className="flex flex-row justify-between pt-16 px-6 items-center">
-                            <Image source={back_2}></Image>
-                            <Image source={bell_2}></Image>
-                        </View>
+                    
+                    <ImageBackground source={require('../img/bg_profile.png')} className='min-h-[50%] max-h-[50%] items-center z-30'>
+                        <ProfileHeader />
                             
                         {/* Info */}
-                        <View className="flex flex-row items-center justify-between px-6 bg-white rounded-2xl mx-4 mt-40" style={styles.shadow}>
+                        <View className="flex flex-row items-center justify-between px-6 bg-white rounded-2xl mt-40 w-[90%]" style={styles.shadow}>
                             <View className="flex flex-col items-center">
                                 <Image source={profile} className=""></Image>
                                 <Text className="font-bold text-2xl">Taylor Swift</Text>

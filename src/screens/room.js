@@ -21,6 +21,7 @@ import rightArrow from '../img/rightArrow.png'
 import bgAddDevice from '../img/Rectangle.png'
 import addsuccess from '../img/Done_ring_round.png'
 import closeModal from '../img/close_ring.png'
+import gamepad from '../img/Gamepad.png'
 
 import styles from '../style'
 
@@ -85,7 +86,7 @@ const Room = ({ route }) => {
     <BackGround>
 
       <View className="flex flex-col h-screen ">
-        <StyledComponent component={View} className="h-full w-full pt-12 px-2">
+        <StyledComponent component={View} className="h-full w-full pt-12 px-2 items-center">
           <RoomHeader/>
 
           <View className='bg-[#E0F2F8] w-[95%] rounded-2xl mx-auto my-8' style={styles.shadow}>
@@ -144,7 +145,12 @@ const Room = ({ route }) => {
                   source={bgAddDevice} 
                   imageStyle={{ borderRadius: 12 }}
                 >
-                  <Text className='text-[#414141] font-medium opacity-80 text-lg tracking-wider px-10 py-4'>New device</Text>
+                  <View className='flex flex-row px-10 py-5 gap-x-3 items-center'>
+                    <Image source={gamepad} className='scale-[1.2]'></Image>
+                    <Text className='text-[#414141] font-medium opacity-80 text-xl tracking-wider'>
+                      New device
+                    </Text>
+                  </View>
                   <View className='flex items-center gap-y-4'>  
                     <TextInput 
                       className="py-2.5 rounded-xl border w-[80%] px-4 bg-white border-white" 
@@ -176,28 +182,30 @@ const Room = ({ route }) => {
 
           </View>
 
-          <Text className="text-[#414141] font-medium opacity-80 text-base px-6 pb-4">All devices ({Rooms[id].device.length})</Text>
-          
-          <ScrollView className="h-full px-4">
-            <View className='flex items-center gap-4 mb-6'>
-              {Rooms[id].device.map((item, index) => (
-                <Pressable
-                  className='flex flex-row justify-between items-center w-[92%] border border-[#12BEF6] border-2 rounded-xl bg-white py-2 px-6'
-                  key={index}
-                  style={styles.shadow}
-                >
-                  <View className='flex flex-row items-center'>
-                    <Image source={fanIcon}></Image>
-                    <Text className='text-[#414141] font-medium opacity-80 text-base tracking-wider px-2'>{item}</Text>
-                  </View>
+          <View className='h-[45%]'>
+            <Text className="text-[#414141] font-medium opacity-80 text-base px-6 pb-4">All devices ({Rooms[id].device.length})</Text>
+            
+            <ScrollView className="px-4">
+              <View className='flex items-center gap-4 mb-6'>
+                {Rooms[id].device.map((item, index) => (
+                  <Pressable
+                    className='flex flex-row justify-between items-center w-[92%] border border-[#12BEF6] border-2 rounded-xl bg-white py-2 px-6'
+                    key={index}
+                    style={styles.shadow}
+                  >
+                    <View className='flex flex-row items-center'>
+                      <Image source={fanIcon}></Image>
+                      <Text className='text-[#414141] font-medium opacity-80 text-base tracking-wider px-2'>{item}</Text>
+                    </View>
 
-                  <Image source={rightArrow}></Image>
+                    <Image source={rightArrow}></Image>
 
-                </Pressable>
-              ))}
-            </View>
-          </ScrollView>
+                  </Pressable>
+                ))}
+              </View>
+            </ScrollView>
 
+          </View>
         </StyledComponent>
 
         <Footer/>
