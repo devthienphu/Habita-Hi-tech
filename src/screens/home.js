@@ -60,11 +60,11 @@ const Rooms = [
 const Home = ({ navigation }) => {
     return (
         <BackGround>
-       
+        
             <View className="flex flex-col h-screen ">
             
                 <StyledComponent component={View} className="items-center h-full w-full pt-12 px-2">
-                    <Header/>
+                    <Header id={0} />
                 
                     <View className="flex flex-row justify-between px-4 w-full pt-8">
                         <Text className="flex text-[#414141] font-medium opacity-80 text-base">All rooms ({Rooms.length})</Text>

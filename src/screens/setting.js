@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, Image, ScrollView, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import back from '../img/back.png';
 import bell from '../img/bell_icon.png';
 import heart from '../img/heart.png';
 import sheld from '../img/sheld.png';
@@ -21,9 +20,9 @@ const Setting = () => {
         <BackGround>
 
         <View className="flex flex-col h-screen">
-            <View className="pt-12">
-                <Header/>
-                
+            <View className="pt-12 items-center px-2">
+                <Header  id={3} />
+                 
                 {/* Setting option */}
                 <View className='mb-8'>
                     <Text className="font-bold text-gray-700 px-5 text-lg mt-8">Settings</Text>
@@ -78,27 +77,29 @@ const Setting = () => {
                 </View>
 
                 {/* More */}
-                <View>
-                    <Text className="font-bold text-gray-700 px-5 text-lg">More</Text>
+                <View className='w-[94%]'>
+                    <Text className="font-bold text-gray-700 text-lg">More</Text>
 
-                    <View className='mb-12'>
-                        <View className="flex flex-col gap-y-6 bg-white rounded-xl mx-5 mt-4 pb-6 px-2 " style={styles.shadow}>
-                            {/* Options */}
-                            <View className="flex flex-row justify-between items-center px-4">
-                                <Pressable className="flex flex-row gap-x-4 items-center">
-                                    <Image source={bell} className="scale-[1.1]"></Image>
-                                        <Text className="text-lg font-semibold">Help & Support</Text>
+                    <View className="flex flex-col gap-y-6 bg-white rounded-xl mt-4 pb-6 px-2" style={styles.shadow}>
+                        {/* Options */}
+                        <View className="flex flex-row justify-between items-center px-4">
+                            <View className="flex flex-row gap-x-4 items-center">
+                                <Image source={bell} className="scale-[1.1]"></Image>
+                                <Pressable className="flex flex-col">
+                                    <Text className="text-lg font-semibold">Help & Support</Text>
                                 </Pressable>
-                                <Image source={next}></Image>
                             </View>
+                            <Image source={next}></Image>
+                        </View>
 
-                            <View className="flex flex-row justify-between items-center px-4">
-                                <Pressable className="flex flex-row gap-x-4 items-center">
-                                    <Image source={heart} className="scale-[1.1]"></Image>
-                                        <Text className="text-lg font-semibold">About App</Text>
+                        <View className="flex flex-row justify-between items-center px-4">
+                            <View className="flex flex-row gap-x-4 items-center">
+                                <Image source={heart} className="scale-[1.1]"></Image>
+                                <Pressable className="flex flex-col">
+                                    <Text className="text-lg font-semibold">About App</Text>
                                 </Pressable>
-                                <Image source={next}></Image>
                             </View>
+                            <Image source={next}></Image>
                         </View>
                     </View>
                 </View>

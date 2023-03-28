@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { BlurView } from 'expo-blur';
 
 import BackGround from '../components/background';
-import Header from '../components/header';
+import RoomHeader from '../components/roomheader';
 import Footer from '../components/footer';
 
 import bedRoom from '../img/bedRoom.png';
@@ -86,7 +86,7 @@ const Room = ({ route }) => {
 
       <View className="flex flex-col h-screen ">
         <StyledComponent component={View} className="h-full w-full pt-12 px-2">
-          <Header/>
+          <RoomHeader/>
 
           <View className='bg-[#E0F2F8] w-[95%] rounded-2xl mx-auto my-8' style={styles.shadow}>
 

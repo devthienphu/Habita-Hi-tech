@@ -4,29 +4,15 @@ import React, { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
-import MenuSide from './menuSide';
 import Notification from './notification';
 
-const Header = ( props ) => {
-    const id = props.id
+const RoomHeader = () => {
     const navigation = useNavigation()
 
-    const [menuSideState, setMenuSideState] = useState(false)
     const [notiState, setNotiState] = useState(false)
 
     return (
         <>
-            {menuSideState && 
-                <>
-                    <MenuSide id={id} />
-
-                    <TouchableWithoutFeedback onPress={() => setMenuSideState(false)}>
-                        <View className='absolute right-[-4] top-[-10] w-[25%] h-screen z-50'>
-                        </View>
-                    </TouchableWithoutFeedback>
-                </>
-            }
-
             {notiState && 
                 <>
                     <Notification />
@@ -39,9 +25,9 @@ const Header = ( props ) => {
             }
 
             <StyledComponent component={View} className="flex flex-row justify-between w-full px-3 items-center">
-                <Pressable onPress={() => setMenuSideState(true)}>
-                    <StyledComponent component={Image} className="object-cover" 
-                        source={require('../img/menuIcon.png')}>
+                <Pressable>
+                    <StyledComponent component={Image} className="object-cover scale-[1.4]" 
+                        source={require('../img/back_3.png')}>
                     </StyledComponent>
                 </Pressable>
 
@@ -66,4 +52,4 @@ const Header = ( props ) => {
     );
 }
 
-export default Header;
+export default RoomHeader;

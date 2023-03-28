@@ -30,11 +30,12 @@ const Statistic = () => {
 
     return (
       <BackGround>
-        <View className="flex flex-col pt-12 justify-between h-screen">
-            <View className="flex flex-col px-2">
-                <Header/>
-                {/* Selection */}
-                <View className="flex flex-row justify-between px-2 pt-6 z-10">
+        <View className="flex h-screen">
+ 
+          <View className="h-full w-full pt-12 px-2 items-center">
+              <Header  id={2} />
+              {/* Selection */}
+              <View className="flex flex-row gap-x-10 px-2 pt-6 z-10">
                 <View className="w-2/5">
                   <DropDownPicker
                     open={open1}
@@ -59,20 +60,22 @@ const Statistic = () => {
                   />
                 </View>
 
-                </View>
+              </View>
 
-                <Image source={temperature} className="w-full my-4"></Image>
-                <Image source={light} className="w-full my-4"></Image>
+              <Image source={temperature} className="w-full my-4"></Image>
+              <Image source={light} className="w-full my-4"></Image>
 
-                <Pressable 
-                    style={styles.shadow} 
-                    className="bg-[#48D0FE] rounded-2xl w-fit items-center mx-16 py-4 mt-6">
-                    <Text className="text-xl font-bold text-white">Generate report</Text>
-                </Pressable>
-            </View>
+              <Pressable 
+                  style={styles.shadow} 
+                  className="bg-[#48D0FE] rounded-2xl items-center px-8 py-4 mt-6">
+                  <Text className="text-xl font-bold text-white">Generate report</Text>
+              </Pressable>
+          </View>
+        
+          <Footer/> 
+
         </View>
 
-        <Footer/>
       </BackGround>
     );
 }
