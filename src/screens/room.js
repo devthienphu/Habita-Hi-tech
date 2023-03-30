@@ -208,7 +208,7 @@ const Room = ({ route }) => {
           </View>
         </StyledComponent>
 
-        <Footer/>
+        {/* <Footer/> */}
 
       </View>
 

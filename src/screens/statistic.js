@@ -72,7 +72,7 @@ const Statistic = () => {
               </Pressable>
           </View>
         
-          <Footer/> 
+          {/* <Footer/>  */}
 
         </View>
 

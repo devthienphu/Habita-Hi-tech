@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ImageBackground} from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
 import styles from '../style'
+
+import bgTab from '../img/bg-bottomtab.png'
 
 import home from '../img/home.png'
 import statistic from '../img/static.png'
@@ -20,8 +22,12 @@ const MenuSide = ( props ) => {
   const navigation = useNavigation()
 
   return (
-    <View className='z-50 w-full h-full absolute left-0 top-[-10]'>
-      <View className='bg-white w-4/5 h-screen px-4 py-16' style={styles.shadow}>
+    <View className='z-50 w-4/5 h-full absolute left-0 top-[-10]'>
+      <ImageBackground 
+          source={bgTab} 
+          resizeMode="cover" 
+          className='h-screen px-4 py-16'
+      >
         <View className='flex flex-row justify-between items-center'>
           <View className='flex flex-row items-center gap-x-3'>
             <Image source={logo}></Image>
@@ -31,22 +37,22 @@ const MenuSide = ( props ) => {
         </View>
 
         <View className='flex mt-4'>
-          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===0? ' bg-gray-300 rounded-r-xl':'')} style={id===0 && styles.shadow}>
+          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===0? ' bg-blue-50 rounded-r-xl':'')} style={id===0 && styles.shadow}>
             <Image source={home} className='scale-[1.25] w-[24]'></Image>
             <Text className={'text-[#333333] font-medium text-lg tracking-wider' + (id ===0 ? '':' opacity-80')}>Home</Text>
           </View>
 
-          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===1? ' bg-gray-300 rounded-r-xl':'')} style={id===1 && styles.shadow}>
+          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===1? ' bg-blue-50 rounded-r-xl':'')} style={id===1 && styles.shadow}>
             <Image source={user} className='scale-[1.25] w-[24]'></Image>
             <Text className={'text-[#333333] font-medium text-lg tracking-wider' + (id===1? '':' opacity-80')}>Profile</Text>
           </View>
 
-          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===2? ' bg-gray-300 rounded-r-xl':'')} style={id===2 && styles.shadow}>
+          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===2? ' bg-blue-50 rounded-r-xl':'')} style={id===2 && styles.shadow}>
             <Image source={statistic} className='scale-[1.25] w-[24]'></Image>
             <Text className={'text-[#333333] font-medium text-lg tracking-wider' + (id===2? '':' opacity-80')}>Statistic</Text>
           </View>
 
-          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===3? ' bg-gray-300 rounded-r-xl':'')} style={id===3 && styles.shadow}>
+          <View className={'flex flex-row gap-x-4 items-center py-4 px-4' + (id===3? ' bg-blue-50 rounded-r-xl':'')} style={id===3 && styles.shadow}>
             <Image source={setting} className='scale-[1.25] w-[24]'></Image>
             <Text className={'text-[#333333] font-medium text-lg tracking-wider' + (id===3? '':' opacity-80')}>Setting</Text>
           </View>
@@ -62,7 +68,7 @@ const MenuSide = ( props ) => {
           </View>
 
         </View>
-      </View>
+      </ImageBackground>
     </View>
   )
 }

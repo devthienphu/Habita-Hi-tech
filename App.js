@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View } from 'react-native';
 
 import SignIn from './src/screens/signIn';
 import Started from './src/screens/started';
@@ -11,18 +12,30 @@ import Profile from './src/screens/profile';
 import Statistic from './src/screens/statistic';
 import Setting from './src/screens/setting';
 
+import Footer from './src/components/footer';
+
 const Stack = createNativeStackNavigator();
 
-const stackOptions = {
-  headerShown: false
-};
-
 export default function App() {
+  const [screen, setScreen] = useState('Started')
+  const navigationRef = useRef(null);
+
+  useEffect(() => {
+    const unsubscribe = navigationRef.current?.addListener('state', () => {
+      const currentRouteName = navigationRef.current.getCurrentRoute().name;
+      setScreen(currentRouteName);
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef} className='flex-1'>
         <Stack.Navigator
           initialRouteName="Started"
-          screenOptions={ stackOptions }
+          screenOptions={{
+            headerShown: false,
+          }}
         >
           <Stack.Screen name="Onboard" component={Started} />
           <Stack.Screen name="Home" component={Home} />
@@ -33,8 +46,12 @@ export default function App() {
           <Stack.Screen name="Statistic" component={Statistic} />
           <Stack.Screen name="Setting" component={Setting} />
 
-
         </Stack.Navigator>
+
+        {
+          ['Home', 'Room', 'Profile', 'Statistic', 'Setting'].includes(screen) && <Footer />
+        }
+
       </NavigationContainer>
   );
 }

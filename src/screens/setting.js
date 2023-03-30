@@ -107,7 +107,7 @@ const Setting = () => {
             </View>
         </View>
 
-        <Footer/>
+        {/* <Footer/> */}
         </BackGround>
 
     );

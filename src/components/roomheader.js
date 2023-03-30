@@ -25,7 +25,7 @@ const RoomHeader = () => {
             }
 
             <StyledComponent component={View} className="flex flex-row justify-between w-full px-3 items-center">
-                <Pressable>
+                <Pressable onPress={() => navigation.pop()}>
                     <StyledComponent component={Image} className="object-cover scale-[1.4]" 
                         source={require('../img/back_3.png')}>
                     </StyledComponent>

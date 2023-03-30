@@ -75,14 +75,14 @@ const Home = ({ navigation }) => {
                         </View>
                         
                     </View>
-                    <ScrollView className="h-full mb-4">
+                    <ScrollView className="h-full mb-6">
                         <View className='flex flex-wrap flex-row grid-cols-2 gap-4 items-center mx-auto mt-2'>
                             {Rooms.map((item, index) => ( 
                                 <Pressable 
                                     className='border border-2 border-[#12BEF6] rounded-xl py-4 px-5 bg-white w-[45%]' 
                                     key={index} 
                                     style={styles.shadow}
-                                    onPress={() => navigation.navigate('Room', {id: index})}
+                                    onPress={() => navigation.push('Room', {id: index})}
                                 >
                                     <Image source={item.img}></Image>
                                     <Text className='text-[#3D3D3D] font-bold text-lg py-2'>{item.name}</Text>
@@ -95,7 +95,7 @@ const Home = ({ navigation }) => {
             
                 </StyledComponent>
 
-                <Footer/>
+                {/* <Footer/> */}
 
             </View>
           

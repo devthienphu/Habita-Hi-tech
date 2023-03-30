@@ -74,7 +74,7 @@ const Profile = ({ navigation }) => {
                 </View>
             </View>
 
-            <Footer/>
+            {/* <Footer/> */}
 
         </BackGround>
     );
