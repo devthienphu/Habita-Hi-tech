@@ -67,7 +67,7 @@ const Statistic = () => {
 
               <Pressable 
                   style={styles.shadow} 
-                  className="bg-[#48D0FE] rounded-2xl items-center px-8 py-4 mt-6">
+                  className="bg-[#4682B4] rounded-2xl items-center px-8 py-4 mt-6">
                   <Text className="text-xl font-bold text-white">Generate report</Text>
               </Pressable>
           </View>

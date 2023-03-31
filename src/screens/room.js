@@ -89,15 +89,14 @@ const Room = ({ route }) => {
         <StyledComponent component={View} className="h-full w-full pt-12 px-2 items-center">
           <RoomHeader/>
 
-          <View className='bg-[#E0F2F8] w-[95%] rounded-2xl mx-auto my-8' style={styles.shadow}>
+          <View className='bg-[#E0F2F9] w-[95%] rounded-2xl mx-auto my-8' style={styles.shadow}>
 
-            <View className='bg-[#12BEF6] px-2 rounded-2xl py-4' style={styles.shadow}>
+            <View className='bg-[#191970] px-2 rounded-2xl py-4 opacity-90' style={styles.shadow}>
               <View className='flex flex-row items-center px-4'>
-                <Text className='text-white font-bold text-xl tracking-wider pr-2'>{Rooms[id].name}</Text>
-                <Image source={Rooms[id].img}></Image>
+                <Text className='text-white font-black text-xl tracking-wider pr-2 py-2'>{Rooms[id].name}</Text>
               </View>
 
-              <Text className='text-white tracking-wider px-4 text-base'>{Rooms[id].device.length} devices</Text>
+              <Text className='text-white tracking-wider px-4 text-base font-semibold'>{Rooms[id].device.length} devices</Text>
 
               <View className='flex flex-row justify-around pt-6'>
 

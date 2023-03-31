@@ -38,7 +38,7 @@ const Header = ( props ) => {
                 </>
             }
 
-            <StyledComponent component={View} className="flex flex-row justify-between w-full px-3 items-center">
+            <View className="flex flex-row justify-between w-full px-3 items-center">
                 <Pressable onPress={() => setMenuSideState(true)}>
                     <StyledComponent component={Image} className="object-cover" 
                         source={require('../img/menuIcon.png')}>
@@ -61,7 +61,7 @@ const Header = ( props ) => {
                     <Image className="object-cover" source={require('../img/bellicon.png')}></Image>
                 </Pressable>
 
-            </StyledComponent>
+            </View>
         </>
     );
 }

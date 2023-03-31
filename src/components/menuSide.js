@@ -22,7 +22,7 @@ const MenuSide = ( props ) => {
   const navigation = useNavigation()
 
   return (
-    <View className='z-50 w-4/5 h-full absolute left-0 top-[-10]'>
+    <View className='z-50 w-4/5 h-screen absolute left-0 border-r-2 border-blue-200'>
       <ImageBackground 
           source={bgTab} 
           resizeMode="cover" 

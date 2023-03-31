@@ -65,7 +65,7 @@ const Profile = ({ navigation }) => {
 
                         <Pressable 
                             style={styles.shadow} 
-                            className="bg-[#48D0FE] rounded-2xl w-fit items-center mx-32 py-2 mt-6"
+                            className="bg-[#4682B4] rounded-2xl w-fit items-center mx-32 py-2 mt-6"
                             onPress={() => navigation.navigate('SignIn')}
                         >
                             <Text className="text-xl font-bold text-white py-1">Log out</Text>

@@ -20,7 +20,7 @@ const SignUp = ({ navigation }) => {
                 <StyledComponent component={TextInput} className="py-2.5 rounded-xl border w-3/4 px-4 bg-white border-white" placeholder="Enter Email" style={styles.shadow}/>
                 <StyledComponent component={TextInput} className="py-2.5 rounded-xl border w-3/4 px-4 bg-white border-white mb-8" placeholder="Enter Password" style={styles.shadow}/>
 
-                <StyledComponent component={TouchableOpacity} onPress={() => navigation.navigate("Home")} className="mb-4 px-8 py-3 bg-[#48D0FE] rounded-md w-3/4 " style={styles.shadow}>
+                <StyledComponent component={TouchableOpacity} onPress={() => navigation.navigate("Home")} className="mb-4 px-8 py-3 bg-[#4682B4] rounded-md w-3/4 " style={styles.shadow}>
                     <StyledComponent component={Text} className="font-bold text-white text-xl text-center">Sign Up</StyledComponent>
                 </StyledComponent>
                 
