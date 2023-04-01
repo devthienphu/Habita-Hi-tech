@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View } from 'react-native';
 
 import SignIn from './src/screens/signIn';
 import Started from './src/screens/started';
@@ -39,8 +38,8 @@ export default function App() {
         >
           <Stack.Screen name="Onboard" component={Started} />
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="SignIn" component={SignIn} />
-          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="SignIn" component={SignIn} options={{animation: 'none'}} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{animation: 'none'}} />
           <Stack.Screen name="Room" component={Room} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Statistic" component={Statistic} />

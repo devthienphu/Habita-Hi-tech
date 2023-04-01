@@ -1,14 +1,14 @@
 import {View, Text, Image, ScrollView, Pressable} from 'react-native';
 import { StyledComponent } from "nativewind";
-import React from 'react';
+import { useState } from 'react';
+
 import Header from '../components/header';
 import BackGround from '../components/background';
 import bedRoom from '../img/bedRoom.png';
 import livingRoom from '../img/livingRoom.png';
 import kitchen from '../img/kitchen.png';
 import studioRoom from '../img/studioRoom.png';
-
-import Footer from '../components/footer';
+import FadeOutAnimation from '../components/animation/FadeOut';
 
 import styles from '../style'
 
@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
                                     <Text className='text-[#7D7D7D] pb-8'>Temperature: {item.temperature} °C</Text>
                                 </Pressable>
                             ))}
-                        </View>
+                        </View> 
                     </ScrollView>
             
                 </StyledComponent>
