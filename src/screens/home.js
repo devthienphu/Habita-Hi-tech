@@ -8,7 +8,6 @@ import bedRoom from '../img/bedRoom.png';
 import livingRoom from '../img/livingRoom.png';
 import kitchen from '../img/kitchen.png';
 import studioRoom from '../img/studioRoom.png';
-import FadeOutAnimation from '../components/animation/FadeOut';
 
 import styles from '../style'
 
