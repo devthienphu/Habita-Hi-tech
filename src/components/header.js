@@ -1,8 +1,8 @@
-import {View, Text, Image, TouchableWithoutFeedback, Pressable} from 'react-native';
+import {View, Text, Image, TouchableWithoutFeedback, Pressable, Animated} from 'react-native';
 import { StyledComponent } from "nativewind";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 import MenuSide from './menuSide';
 import Notification from './notification';
@@ -12,34 +12,87 @@ const Header = ( props ) => {
     const navigation = useNavigation()
 
     const [menuSideState, setMenuSideState] = useState(false)
+    const [sideAnimation] = useState(new Animated.Value(0))
     const [notiState, setNotiState] = useState(false)
+    const [notiAnimation] = useState(new Animated.Value(0));
+
+    useEffect(() => {
+        Animated.timing(notiAnimation, {
+          toValue: notiState ? 1 : 0,
+          duration: 400,
+          useNativeDriver: true,
+        }).start();
+    }, [notiState]);
+
+    useEffect(() => {
+        Animated.timing(sideAnimation, {
+          toValue: menuSideState ? 1 : 0,
+          duration: 300,
+          useNativeDriver: true,
+        }).start();
+    }, [menuSideState]);
+
+    useFocusEffect(
+        React.useCallback(() => {
+            return () => {
+                setNotiState(false);
+                setMenuSideState(false);
+            };
+        }, [])
+    );
+
+    const translateX1 = sideAnimation.interpolate({
+        inputRange: [0, 0.5, 1],
+        outputRange: [-50, 50, 0],
+    })
+
+    const translateY = notiAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [-200, 0],
+    });
+    
+    const translateX = notiAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [200, 0],
+    });
+
+    const scale = notiAnimation.interpolate({
+        inputRange: [0, 0.3, 1],
+        outputRange: [0, 1.2, 1],
+    });
 
     return (
         <>
             {menuSideState && 
-                <>
+                <Animated.View
+                    className='absolute h-screen w-full z-50'
+                    style={{transform: [{ translateX: translateX1 }]}}    
+                >
                     <MenuSide id={id} />
 
-                    <TouchableWithoutFeedback onPress={() => setMenuSideState(false)}>
+                    <TouchableWithoutFeedback onPress={() => setMenuSideState(!menuSideState)}>
                         <View className='absolute right-[-4] top-[-10] w-[25%] h-screen z-50'>
                         </View>
                     </TouchableWithoutFeedback>
-                </>
+                </Animated.View>
             }
 
             {notiState && 
-                <>
+                <Animated.View 
+                    className='absolute h-screen w-full z-30' 
+                    style={{transform: [{ translateY }, { translateX }, { scale }]}}
+                >
                     <Notification />
                     
-                    <TouchableWithoutFeedback onPress={() => setNotiState(false)}>
+                    <TouchableWithoutFeedback onPress={() => setNotiState(!notiState)}>
                         <View className='absolute left-0 right-0 top-0 h-screen z-30'>
                         </View>
                     </TouchableWithoutFeedback>
-                </>
+                </Animated.View>
             }
 
             <View className="flex flex-row justify-between w-full px-3 items-center">
-                <Pressable onPress={() => setMenuSideState(true)}>
+                <Pressable onPress={() => setMenuSideState(!menuSideState)}>
                     <StyledComponent component={Image} className="object-cover" 
                         source={require('../img/menuIcon.png')}>
                     </StyledComponent>
@@ -57,7 +110,7 @@ const Header = ( props ) => {
                 </View>
                 </Pressable>
                 
-                <Pressable onPress={() => setNotiState(true)}>
+                <Pressable onPress={() => setNotiState(!notiState)}>
                     <Image className="object-cover" source={require('../img/bellicon.png')}></Image>
                 </Pressable>
 

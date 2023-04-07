@@ -22,7 +22,7 @@ const MenuSide = ( props ) => {
   const navigation = useNavigation()
 
   return (
-    <View className='z-50 w-4/5 h-screen absolute left-0 border-r-2 border-blue-200'>
+    <View className='w-4/5 left-[-10] border-r-2 border-blue-200'>
       <ImageBackground 
           source={bgTab} 
           resizeMode="cover" 
@@ -33,7 +33,6 @@ const MenuSide = ( props ) => {
             <Image source={logo}></Image>
             <Text className='text-[#1289F6] font-black text-xl opacity-90 tracking-wide'>High-tech Habitat</Text>
           </View>
-          <Image source={back} className='scale-75 opacity-80'></Image>
         </View>
 
         <View className='flex mt-4'>

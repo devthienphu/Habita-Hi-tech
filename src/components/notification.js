@@ -44,7 +44,7 @@ const notification = [
 
 const Notification = () => {
   return (
-    <View className='z-50 bg-gray-100 w-[95%] absolute top-[110] rounded-xl h-[60%]' style={styles.shadow}>
+    <View className='z-50 bg-gray-100 w-[95%] top-[110] mx-auto rounded-xl h-[60%]' style={styles.shadow}>
       <View className='bg-[#252547] rounded-t-xl flex flex-row items-center px-4' >
         <Image source={bookmark}></Image>
         <Text className='text-[#fff] font-bold text-lg tracking-wider px-2 py-4'>Notifications</Text>
