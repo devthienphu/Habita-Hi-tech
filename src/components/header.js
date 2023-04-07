@@ -27,7 +27,7 @@ const Header = ( props ) => {
     useEffect(() => {
         Animated.timing(sideAnimation, {
           toValue: menuSideState ? 1 : 0,
-          duration: 300,
+          duration: 700,
           useNativeDriver: true,
         }).start();
     }, [menuSideState]);
@@ -42,8 +42,8 @@ const Header = ( props ) => {
     );
 
     const translateX1 = sideAnimation.interpolate({
-        inputRange: [0, 0.5, 1],
-        outputRange: [-50, 50, 0],
+        inputRange: [0, 0.8, 1],
+        outputRange: [-300, 30, 0],
     })
 
     const translateY = notiAnimation.interpolate({
@@ -57,7 +57,7 @@ const Header = ( props ) => {
     });
 
     const scale = notiAnimation.interpolate({
-        inputRange: [0, 0.3, 1],
+        inputRange: [0, 0.7, 1],
         outputRange: [0, 1.2, 1],
     });
 
